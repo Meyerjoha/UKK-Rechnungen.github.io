@@ -25,7 +25,7 @@
         #products {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            margin-bottom: 0rem;
         }
 
         #products .product {
@@ -52,52 +52,52 @@
         <h1><img src="https://upload.wikimedia.org/wikipedia/de/thumb/c/cf/Logo_UniKoeln.svg/2560px-Logo_UniKoeln.svg.png" alt="Product 1" style="width:auto;height:300px"></h1>
     </div>
     <div id="products">
-        <div class="product" data-price="700" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="700" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
             <h1>Kompressionsverband</h1>
             <p><input type="number" min="0" max="20" value="0" name="Adrenalin" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="150" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="500" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044023.png" alt="Product 2">
             <h1>Tourniquet</h1>
             <p><input type="number" min="0" max="20" value="0" name="product-2" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="200" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044742.png" alt="Product 3">
-            <h1>Bandage</h1>
+            <h1>Quickcloth</h1>
             <p><input type="number" min="0" max="20" value="0" name="product-3" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="700" style="border:5px solid rgb(0, 0, 0);">
+        <div class="product" data-price="700" style="border:3px solid rgb(0, 0, 0);">
             <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/4935/4935603.png" alt="Product 1">
-            <h1>Adrenalin</h1>
+            <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
+            <h1>Packverband</h1>
             <p><input type="number" min="0" max="20" value="0" name="Adrenalin" onchange="calculateTotal()"></p>
         </div>
         <br>
      </div>
      <div id="products">
-        <div class="product" data-price="700" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="700" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;border-top:2.3px">
             <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
-            <h1>Kompressionsverband</h1>
+            <img src="https://cdn-icons-png.flaticon.com/128/2300/2300987.png" alt="Product 1">
+            <h1>Nähset</h1>
             <p><input type="number" min="0" max="20" value="0" name="Adrenalin" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="150" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="150" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;border-top:2.3px">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044023.png" alt="Product 2">
             <h1>Tourniquet</h1>
             <p><input type="number" min="0" max="20" value="0" name="product-2" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="200" style="border:5px solid rgb(0, 0, 0);border-right:2.5px;">
+        <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;border-top:2.3px">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044742.png" alt="Product 3">
             <h1>Bandage</h1>
             <p><input type="number" min="0" max="20" value="0" name="product-3" onchange="calculateTotal()"></p>
         </div>
-        <div class="product" data-price="700" style="border:5px solid rgb(0, 0, 0);">
+        <div class="product" data-price="700" style="border:3px solid rgb(0, 0, 0);border-top:2.3px">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/4935/4935603.png" alt="Product 1">
             <h1>Adrenalin</h1>
@@ -125,7 +125,7 @@
             const products = document.getElementsByClassName("product");
 
             for (let i = 0; i < products.length; i++) {
-                products[i].getElementsByTagName("input")[0].value = "1";
+                products[i].getElementsByTagName("input")[0].value = "0";
             }
 
             calculateTotal();
