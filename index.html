@@ -86,6 +86,7 @@
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
             <h1>Kompressionsverband</h1>
+            <h2>Preis: 1.50€</h2>
             <p><input type="number" min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
                       border: 2px solid black;
                       border-radius: 10px;
@@ -705,7 +706,7 @@ const copyButton = document.getElementById("copy-button");
       copyButton.innerHTML = "Summe wurde kopiert!";
       copyButton.style.backgroundColor = "#28a745";
       setTimeout(() => {
-        copyButton.innerHTML = "Copy";
+        copyButton.innerHTML = "Summe Kopieren";
         copyButton.style.backgroundColor = "#007bff";
       }, 2000);
     });
