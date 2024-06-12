@@ -89,8 +89,8 @@
         <h1>Kompressionsverband</h1>
         <h2>Preis: 200€</h2>
         <p>
-          <button style="font-size: xx-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment()">+</button>
-          <input type="number" min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
+          <button style=" margin-left: 60%; font-size:  x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment()">+</button>
+          <input type="number" min="0" max="100" value="0" name="Adrenalin" id="KV" style="
                             border: 2px solid black;
                             border-radius: 10px;
                             font-size: x-large;
@@ -102,29 +102,72 @@
                             text-align: center;
                             box-sizing: border-box;"
                             >
-          <button style="font-size: xx-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement()">-</button>
+          <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement()">-</button>
         </p>
       </div>
+      
+      <script>
+        function increment() {
+          var input = document.getElementById('KV');
+          input.value = parseInt(input.value) + 1;
+          if (input.value > 100) {
+            input.value = 100;
+          }
+          calculateTotal();
+        }
+      
+        function decrement() {
+          var input = document.getElementById('KV');
+          input.value = parseInt(input.value) - 1;
+          if (input.value < 0) {
+            input.value = 0;
+          }
+          calculateTotal();
+        }
+      </script>
           
         <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044023.png" alt="Product 2">
             <h1>Tourniquet</h1>
             <h2>Preis: 100€</h2>
-            <p><input min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
-                      border: 2px solid black;
-                      border-radius: 10px;
-                      font-size: x-large;
-                      background-color: #9ff4ff;
-                      padding: 5px 10px;
-                      width: 50%;
-                      margin: 0 auto;
-                      display: block;
-                      text-align: center;
-                      box-sizing: border-box;">
-                    
-                    </p>
-        </div>
+            <p>
+              <button style="font-size: x-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment()">+</button>
+              <input type="number" min="0" max="100" value="0" name="Adrenalin" id="TQ" style="
+                                border: 2px solid black;
+                                border-radius: 10px;
+                                font-size: x-large;
+                                background-color: #9ff4ff;
+                                padding: 5px 10px;
+                                width: 50%;
+                                margin: 0 auto;
+                                display: block;
+                                text-align: center;
+                                box-sizing: border-box;"
+                                >
+              <button style="font-size: x-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement()">-</button>
+            </p>
+          </div>
+          
+          <script>
+            function increment() {
+              var input = document.getElementById('TQ');
+              input.value = parseInt(input.value) + 1;
+              if (input.value > 100) {
+                input.value = 100;
+              }
+              calculateTotal();
+            }
+          
+            function decrement() {
+              var input = document.getElementById('TQ');
+              input.value = parseInt(input.value) - 1;
+              if (input.value < 0) {
+                input.value = 0;
+              }
+              calculateTotal();
+            }
+          </script>
         <div class="product" data-price="150" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044718.png" alt="Product 3">
