@@ -83,27 +83,28 @@
         <h1><img src="https://upload.wikimedia.org/wikipedia/de/thumb/c/cf/Logo_UniKoeln.svg/2560px-Logo_UniKoeln.svg.png" alt="Product 1" style="width:auto;height:300px"></h1>
     </div>
     <div id="products">
-        <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
-            <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
-            <h1>Kompressionsverband</h1>
-            <h2>Preis: 200€</h2>
-            <p><input type="number" min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
-                      border: 2px solid black;
-                      border-radius: 10px;
-                      font-size: x-large;
-                      background-color: #9ff4ff;
-                      padding: 5px 10px;
-                      width: 50%;
-                      margin: 0 auto;
-                      display: block;
-                      text-align: center;
-                      box-sizing: border-box;"
-                      >
-                    
-                    </p>
-                    
-        </div>
+      <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
+        <br>
+        <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
+        <h1>Kompressionsverband</h1>
+        <h2>Preis: 200€</h2>
+        <p>
+          <button style="font-size: xx-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment()">+</button>
+          <input type="number" min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
+                            border: 2px solid black;
+                            border-radius: 10px;
+                            font-size: x-large;
+                            background-color: #9ff4ff;
+                            padding: 5px 10px;
+                            width: 50%;
+                            margin: 0 auto;
+                            display: block;
+                            text-align: center;
+                            box-sizing: border-box;"
+                            >
+          <button style="font-size: xx-large; padding: 10px 20px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement()">-</button>
+        </p>
+      </div>
           
         <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
