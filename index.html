@@ -89,51 +89,8 @@
         <h1>Kompressionsverband</h1>
         <h2>Preis: 200€</h2>
         <p>
-          <button style=" margin-left: 60%; font-size:  x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment1()">+</button>
-          <input type="number" min="0" max="100" value="0" name="Kompressionsverband" id="Kompressionsverband" style="
-                            border: 2px solid black;
-                            border-radius: 10px;
-                            font-size: x-large;
-                            background-color: #9ff4ff;
-                            padding: 5px 10px;
-                            width: 50%;
-                            margin: 0 auto;
-                            display: block;
-                            text-align: center;
-                            box-sizing: border-box;"
-                            >
-          <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement1()">-</button>
-        </p>
-      </div>
-      
-      <script>
-        function increment1() {
-          var input = document.getElementById('Kompressionsverband');
-          input.value = parseInt(input.value) + 1;
-          if (input.value > 100) {
-            input.value = 100;
-          }
-          calculateTotal();
-        }
-      
-        function decrement1() {
-          var input = document.getElementById('Kompressionsverband');
-          input.value = parseInt(input.value) - 1;
-          if (input.value < 0) {
-            input.value = 0;
-          }
-          calculateTotal();
-        }
-      </script>
-          
-        <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
-            <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/2044/2044023.png" alt="Product 2">
-            <h1>Tourniquet</h1>
-            <h2>Preis: 100€</h2>
-            <p>
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment2()">+</button>
-              <input type="number" min="0" max="100" value="0" name="Tourniquet" id="Tourniquet" style="
+            <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Kompressionsverband', 1)">+</button>
+            <input min="0" max="100" value="0" name="Kompressionsverband" id="Kompressionsverband" style="
                                 border: 2px solid black;
                                 border-radius: 10px;
                                 font-size: x-large;
@@ -145,29 +102,33 @@
                                 text-align: center;
                                 box-sizing: border-box;"
                                 >
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement2()">-</button>
-            </p>
-          </div>
+            <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Kompressionsverband', -1)">-</button>
+        </p>
+    </div>
+    
+    <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
+        <br>
+        <img src="https://cdn-icons-png.flaticon.com/128/2044/2044023.png" alt="Product 2">
+        <h1>Tourniquet</h1>
+        <h2>Preis: 100€</h2>
+        <p>
+            <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Tourniquet', 1)">+</button>
+            <input min="0" max="100" value="0" name="Tourniquet" id="Tourniquet" style="
+                                border: 2px solid black;
+                                border-radius: 10px;
+                                font-size: x-large;
+                                background-color: #9ff4ff;
+                                padding: 5px 10px;
+                                width: 50%;
+                                margin: 0 auto;
+                                display: block;
+                                text-align: center;
+                                box-sizing: border-box;"
+                                >
+            <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Tourniquet', -1)">-</button>
+        </p>
+    </div>
           
-          <script>
-            function increment2() {
-              var input = document.getElementById('Tourniquet');
-              input.value = parseInt(input.value) + 1;
-              if (input.value > 100) {
-                input.value = 100;
-              }
-              calculateTotal();
-            }
-          
-            function decrement2() {
-              var input = document.getElementById('Tourniquet');
-              input.value = parseInt(input.value) - 1;
-              if (input.value < 0) {
-                input.value = 0;
-              }
-              calculateTotal();
-            }
-          </script>
           
         <div class="product" data-price="150" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
             <br>
@@ -175,8 +136,8 @@
             <h1>Quickcloth</h1>
             <h2>Preis: 150€</h2>
             <p>
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="increment3()">+</button>
-              <input type="number" min="0" max="100" value="0" name="Quickcloth" id="Quickcloth" style="
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Quickcloth', 1)">+</button>
+              <input min="0" max="100" value="0" name="Quickcloth" id="Quickcloth" style="
                                 border: 2px solid black;
                                 border-radius: 10px;
                                 font-size: x-large;
@@ -188,48 +149,35 @@
                                 text-align: center;
                                 box-sizing: border-box;"
                                 >
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="decrement3()">-</button>
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Quickcloth', -1)">-</button>
             </p>
           </div>
           
-          <script>
-            function increment3() {
-              var input = document.getElementById('Quickcloth');
-              input.value = parseInt(input.value) + 1;
-              if (input.value > 100) {
-                input.value = 100;
-              }
-              calculateTotal();
-            }
           
-            function decrement3() {
-              var input = document.getElementById('Quickcloth');
-              input.value = parseInt(input.value) - 1;
-              if (input.value < 0) {
-                input.value = 0;
-              }
-              calculateTotal();
-            }
-          </script>
         <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
             <h1>Packverband</h1>
             <h2>Preis: 200€</h2>
-            <p><input min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
-                      border: 2px solid black;
-                      border-radius: 10px;
-                      font-size: x-large;
-                      background-color: #9ff4ff;
-                      padding: 5px 10px;
-                      width: 50%;
-                      margin: 0 auto;
-                      display: block;
-                      text-align: center;
-                      box-sizing: border-box;">
-                    
-                    </p>
-        </div>
+            <p>
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Packverband', 1)">+</button>
+              <input min="0" max="100" value="0" name="Packverband" id="Packverband" style="
+                                border: 2px solid black;
+                                border-radius: 10px;
+                                font-size: x-large;
+                                background-color: #9ff4ff;
+                                padding: 5px 10px;
+                                width: 50%;
+                                margin: 0 auto;
+                                display: block;
+                                text-align: center;
+                                box-sizing: border-box;"
+                                >
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Packverband', -1)">-</button>
+            </p>
+          </div>
+          
+          
         <br>
      </div>
      <div id="products">
@@ -238,39 +186,45 @@
             <img src="https://cdn-icons-png.flaticon.com/128/7294/7294270.png" alt="Product 1">
             <h1>Nähset</h1>
             <h2>Preis: 400€</h2>
-            <p><input min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
-                      border: 2px solid black;
-                      border-radius: 10px;
-                      font-size: x-large;
-                      background-color: #9ff4ff;
-                      padding: 5px 10px;
-                      width: 50%;
-                      margin: 0 auto;
-                      display: block;
-                      text-align: center;
-                      box-sizing: border-box;">
-                    
-                    </p>
-        </div>
+            <p>
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Nähset', 1)">+</button>
+              <input min="0" max="100" value="0" name="Nähset" id="Nähset" style="
+                                border: 2px solid black;
+                                border-radius: 10px;
+                                font-size: x-large;
+                                background-color: #9ff4ff;
+                                padding: 5px 10px;
+                                width: 50%;
+                                margin: 0 auto;
+                                display: block;
+                                text-align: center;
+                                box-sizing: border-box;"
+                                >
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Nähset', -1)">-</button>
+            </p>
+          </div>
         <div class="product" data-price="300" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;border-top:2.3px">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2044/2044742.png" alt="Product 2">
             <h1>Elastische Bandage</h1>
             <h2>Preis: 300€</h2>
-            <p><input min="0" max="100" value="0" name="Adrenalin" onchange="calculateTotal()" style="
-                      border: 2px solid black;
-                      border-radius: 10px;
-                      font-size: x-large;
-                      background-color: #9ff4ff;
-                      padding: 5px 10px;
-                      width: 50%;
-                      margin: 0 auto;
-                      display: block;
-                      text-align: center;
-                      box-sizing: border-box;">
-                    
-                    </p>
-        </div>
+            <p>
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Elastische Bandage', 1)">+</button>
+              <input min="0" max="100" value="0" name="Elastische Bandage" id="Elastische Bandage" style="
+                                border: 2px solid black;
+                                border-radius: 10px;
+                                font-size: x-large;
+                                background-color: #9ff4ff;
+                                padding: 5px 10px;
+                                width: 50%;
+                                margin: 0 auto;
+                                display: block;
+                                text-align: center;
+                                box-sizing: border-box;"
+                                >
+              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Elastische Bandage', -1)">-</button>
+            </p>
+          </div>
         <div class="test" data-price="0" style="border:3px solid black;  border-top-style: dotted;border-right-style: none;border-bottom-style: none;border-left-style: solid;border-top:2.3px;background-color: rgb(255, 255, 255);">
             <br>
             <img src="" alt="">
@@ -674,11 +628,10 @@
          </div>
 
          <div id="products">
-          <div class="product" data-price="1000" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
+          <div class="product" data-price="500" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
               <br>
               <img src="https://cdn-icons-png.flaticon.com/128/2044/2044674.png" alt="Product 1">
-              <h1>R1</h1>
-              <h2>Preis: 1000</h2>
+              <h2>kein Transport</h2>
               <style>
                   .checkbox-container {
                     display: flex;
@@ -733,11 +686,11 @@
                   <input type="checkbox" value="0" name="Adrenalin" id="Adrenalin" onchange="changeValue(this);calculateTotal()">
                 </div>
           </div>
-          <div class="product" data-price="612" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
+          <div class="product" data-price="1500" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
               <br>
               <img src="https://cdn-icons-png.flaticon.com/128/2860/2860772.png" alt="Product 2">
-              <h1>R2</h1>
-              <h2>Preis: 2.500</h2>
+              
+              <h2>Transport</h2>
               <style>
                   .checkbox-container {
                     display: flex;
@@ -784,11 +737,11 @@
                   <input type="checkbox" value="0" name="Adrenalin" id="Adrenalin" onchange="changeValue(this);calculateTotal()">
                 </div>
           </div>
-          <div class="product" data-price="465" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
+          <div class="product" data-price="2500" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
               <br>
               <img src="https://cdn-icons-png.flaticon.com/128/2992/2992919.png" alt="Product 3">
-              <h1>R3</h1>
-              <h2>Preis: 7.500</h2>
+              
+              <h2>kein Transport + NA</h2>
               <style>
                   .checkbox-container {
                     display: flex;
@@ -835,11 +788,11 @@
                   <input type="checkbox" value="0" name="Adrenalin" id="Adrenalin" onchange="changeValue(this);calculateTotal()">
                 </div>
           </div>
-          <div class="product" data-price="10000" style="border:3px solid rgb(0, 0, 0);">
+          <div class="product" data-price="4500" style="border:3px solid rgb(0, 0, 0);">
             <br>
             <img src="https://cdn-icons-png.flaticon.com/128/2992/2992919.png" alt="Product 3">
-            <h1>R4</h1>
-            <h2>10.000</h2>
+            
+            <h2>Transport + NA</h2>
             <style>
                 .checkbox-container {
                   display: flex;
@@ -1012,5 +965,17 @@ const copyButton = document.getElementById("copy-button");
   });
     
     </script>
+    <script>
+      function updateQuantity(productId, increment) {
+          var input = document.getElementById(productId);
+          input.value = parseInt(input.value) + increment;
+          if (input.value > 100) {
+              input.value = 100;
+          } else if (input.value < 0) {
+              input.value = 0;
+          }
+          calculateTotal();
+      }
+  </script>
 </body>
 </html>
