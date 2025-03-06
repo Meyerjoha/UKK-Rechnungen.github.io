@@ -76,6 +76,21 @@
         input[type="reset"] {
             margin-left: 1rem;
         }
+
+        .percentage-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .percentage-buttons button {
+            margin: 0 0.5rem;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -104,6 +119,12 @@
                                 >
             <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Kompressionsverband', -1)">-</button>
         </p>
+        <div class="percentage-buttons">
+            <button onclick="updatePercentage('Kompressionsverband', 25)">25%</button>
+            <button onclick="updatePercentage('Kompressionsverband', 50)">50%</button>
+            <button onclick="updatePercentage('Kompressionsverband', 75)">75%</button>
+            <button onclick="updatePercentage('Kompressionsverband', 100)">100%</button>
+        </div>
     </div>
     
     <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
@@ -127,36 +148,15 @@
                                 >
             <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Tourniquet', -1)">-</button>
         </p>
+        <div class="percentage-buttons">
+            <button onclick="updatePercentage('Tourniquet', 25)">25%</button>
+            <button onclick="updatePercentage('Tourniquet', 50)">50%</button>
+            <button onclick="updatePercentage('Tourniquet', 75)">75%</button>
+            <button onclick="updatePercentage('Tourniquet', 100)">100%</button>
+        </div>
     </div>
           
           
-        <div class="product" data-price="150" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
-            <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/2044/2044718.png" alt="Product 3">
-            <h1>Quickcloth</h1>
-            <h2>Preis: 150€</h2>
-            <p>
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 10px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Quickcloth', 1)">+</button>
-              <input min="0" max="100" value="0" name="Quickcloth" id="Quickcloth" style="
-                                border: 2px solid black;
-                                border-radius: 10px;
-                                font-size: x-large;
-                                background-color: #9ff4ff;
-                                padding: 5px 10px;
-                                width: 50%;
-                                margin: 0 auto;
-                                display: block;
-                                text-align: center;
-                                box-sizing: border-box;"
-                                >
-              <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Quickcloth', -1)">-</button>
-            </p>
-          </div>
-          
-          
-        <div class="product" data-price="200" style="border:3px solid rgb(0, 0, 0);">
-            <br>
-            <img src="https://cdn-icons-png.flaticon.com/128/7294/7294674.png" alt="Product 1">
             <h1>Packverband</h1>
             <h2>Preis: 200€</h2>
             <p>
@@ -984,61 +984,93 @@
 
     </div>
     <script>
-        function calculateTotal() {
-            let totalPrice = 0;
-            const products = document.getElementsByClassName("product");
+    function calculateTotal() {
+        let totalPrice = 0;
+        const products = document.getElementsByClassName("product");
 
-            for (let i = 0; i < products.length; i++) {
-                const price = parseFloat(products[i].getAttribute("data-price"));
-                const quantity = parseInt(products[i].getElementsByTagName("input")[0].value);
-                totalPrice += price * quantity;
+        for (let i = 0; i < products.length; i++) {
+            const price = parseFloat(products[i].getAttribute("data-price"));
+            const quantity = parseInt(products[i].getElementsByTagName("input")[0].value);
+            const percentageButtons = products[i].getElementsByClassName("percentage-buttons")[0];
+            let discount = 0;
+
+            if (percentageButtons) {
+                const buttons = percentageButtons.getElementsByTagName("button");
+                for (let j = 0; j < buttons.length; j++) {
+                    if (buttons[j].classList.contains("active")) {
+                        discount = parseInt(buttons[j].innerText.replace('%', ''));
+                        break;
+                    }
+                }
             }
-            document.getElementById("total-price").innerText = `${totalPrice.toFixed(2)} €`;
+
+            const discountedPrice = price * (1 - discount / 100);
+            totalPrice += discountedPrice * quantity;
+        }
+        document.getElementById("total-price").innerText = `${totalPrice.toFixed(2)} €`;
+    }
+
+    function clearForm() {
+        const products = document.getElementsByClassName("product");
+
+        for (let i = 0; i < products.length; i++) {
+            products[i].getElementsByTagName("input")[0].value = "0";
+            products[i].getElementsByTagName("input")[0].checked = false;
+            const percentageButtons = products[i].getElementsByClassName("percentage-buttons")[0];
+            if (percentageButtons) {
+                const buttons = percentageButtons.getElementsByTagName("button");
+                for (let j = 0; j < buttons.length; j++) {
+                    buttons[j].classList.remove("active");
+                }
+            }
         }
 
-        function clearForm() {
-            const products = document.getElementsByClassName("product");
+        calculateTotal();
+    }
 
-            for (let i = 0; i < products.length; i++) {
-                products[i].getElementsByTagName("input")[0].value = "0";
-                products[i].getElementsByTagName("input")[0].checked = false;
-            }
+    function changeValue(checkbox) {
+        checkbox.value = checkbox.checked ? 1 : 0;
+    }
 
-            calculateTotal();
-        }
-        
-        function changeValue(checkbox) {
-    checkbox.value = checkbox.checked ? 1 : 0;
-}
+    const copyButton = document.getElementById("copy-button");
+    const totalPrice = document.getElementById("total-price");
 
-    
-const copyButton = document.getElementById("copy-button");
-  const totalPrice = document.getElementById("total-price");
-
-  copyButton.addEventListener("click", () => {
-    navigator.clipboard.writeText(totalPrice.innerText).then(() => {
-      copyButton.innerHTML = "Summe wurde kopiert!";
-      copyButton.style.backgroundColor = "#28a745";
-      setTimeout(() => {
-        copyButton.innerHTML = "Summe Kopieren";
-        copyButton.style.backgroundColor = "#007bff";
-      }, 2000);
+    copyButton.addEventListener("click", () => {
+        navigator.clipboard.writeText(totalPrice.innerText).then(() => {
+            copyButton.innerHTML = "Summe wurde kopiert!";
+            copyButton.style.backgroundColor = "#28a745";
+            setTimeout(() => {
+                copyButton.innerHTML = "Summe Kopieren";
+                copyButton.style.backgroundColor = "#007bff";
+            }, 2000);
+        });
     });
-  });
-    
-    </script>
-    <script>
-      function updateQuantity(productId, increment) {
-          var input = document.getElementById(productId);
-          input.value = parseInt(input.value) + increment;
-          if (input.value > 100) {
-              input.value = 100;
-          } else if (input.value < 0) {
-              input.value = 0;
-          }
-          calculateTotal();
-      }
-  </script>
+
+    function updateQuantity(productId, increment) {
+        var input = document.getElementById(productId);
+        input.value = parseInt(input.value) + increment;
+        if (input.value > 100) {
+            input.value = 100;
+        } else if (input.value < 0) {
+            input.value = 0;
+        }
+        calculateTotal();
+    }
+
+    function updatePercentage(productId, percentage) {
+        const product = document.getElementById(productId).closest('.product');
+        const buttons = product.getElementsByClassName("percentage-buttons")[0].getElementsByTagName("button");
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+            if (parseInt(buttons[i].innerText.replace('%', '')) === percentage) {
+                buttons[i].classList.add("active");
+            }
+        }
+
+        calculateTotal();
+    }
+</script>
 </body>
 <footer class="impressum">
   <br>
