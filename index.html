@@ -991,23 +991,24 @@
         for (let i = 0; i < products.length; i++) {
             const price = parseFloat(products[i].getAttribute("data-price"));
             const quantity = parseInt(products[i].getElementsByTagName("input")[0].value);
-            const percentageButtons = products[i].getElementsByClassName("percentage-buttons")[0];
-            let discount = 0;
+            totalPrice += price * quantity;
+        }
 
-            if (percentageButtons) {
-                const buttons = percentageButtons.getElementsByTagName("button");
-                for (let j = 0; j < buttons.length; j++) {
-                    if (buttons[j].classList.contains("active")) {
-                        discount = parseInt(buttons[j].innerText.replace('%', ''));
-                        break;
-                    }
+        const percentageButtons = document.getElementsByClassName("percentage-buttons")[0];
+        let discount = 0;
+
+        if (percentageButtons) {
+            const buttons = percentageButtons.getElementsByTagName("button");
+            for (let j = 0; j < buttons.length; j++) {
+                if (buttons[j].classList.contains("active")) {
+                    discount = parseInt(buttons[j].innerText.replace('%', ''));
+                    break;
                 }
             }
-
-            const discountedPrice = price * (1 - discount / 100);
-            totalPrice += discountedPrice * quantity;
         }
-        document.getElementById("total-price").innerText = `${totalPrice.toFixed(2)} €`;
+
+        const discountedTotal = totalPrice * (1 - discount / 100);
+        document.getElementById("total-price").innerText = `${discountedTotal.toFixed(2)} €`;
     }
 
     function clearForm() {
@@ -1016,12 +1017,13 @@
         for (let i = 0; i < products.length; i++) {
             products[i].getElementsByTagName("input")[0].value = "0";
             products[i].getElementsByTagName("input")[0].checked = false;
-            const percentageButtons = products[i].getElementsByClassName("percentage-buttons")[0];
-            if (percentageButtons) {
-                const buttons = percentageButtons.getElementsByTagName("button");
-                for (let j = 0; j < buttons.length; j++) {
-                    buttons[j].classList.remove("active");
-                }
+        }
+
+        const percentageButtons = document.getElementsByClassName("percentage-buttons")[0];
+        if (percentageButtons) {
+            const buttons = percentageButtons.getElementsByTagName("button");
+            for (let j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove("active");
             }
         }
 
@@ -1058,8 +1060,7 @@
     }
 
     function updatePercentage(productId, percentage) {
-        const product = document.getElementById(productId).closest('.product');
-        const buttons = product.getElementsByClassName("percentage-buttons")[0].getElementsByTagName("button");
+        const buttons = document.getElementsByClassName("percentage-buttons")[0].getElementsByTagName("button");
 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
