@@ -119,12 +119,6 @@
                                 >
             <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Kompressionsverband', -1)">-</button>
         </p>
-        <div class="percentage-buttons">
-            <button onclick="updatePercentage('Kompressionsverband', 25)">25%</button>
-            <button onclick="updatePercentage('Kompressionsverband', 50)">50%</button>
-            <button onclick="updatePercentage('Kompressionsverband', 75)">75%</button>
-            <button onclick="updatePercentage('Kompressionsverband', 100)">100%</button>
-        </div>
     </div>
     
     <div class="product" data-price="100" style="border:3px solid rgb(0, 0, 0);border-right:2.3px;">
@@ -148,12 +142,6 @@
                                 >
             <button style="margin-left: 60%; font-size: x-large; padding: 5px 12px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;" onclick="updateQuantity('Tourniquet', -1)">-</button>
         </p>
-        <div class="percentage-buttons">
-            <button onclick="updatePercentage('Tourniquet', 25)">25%</button>
-            <button onclick="updatePercentage('Tourniquet', 50)">50%</button>
-            <button onclick="updatePercentage('Tourniquet', 75)">75%</button>
-            <button onclick="updatePercentage('Tourniquet', 100)">100%</button>
-        </div>
     </div>
           
           
@@ -921,6 +909,12 @@
               Summe: <span id="total-price">0€</span>
             </h1>
           </p>
+          <div class="percentage-buttons">
+            <button onclick="updateTotalPercentage(25)">25%</button>
+            <button onclick="updateTotalPercentage(50)">50%</button>
+            <button onclick="updateTotalPercentage(75)">75%</button>
+            <button onclick="updateTotalPercentage(100)">100%</button>
+        </div>
           <button id="copy-button" 
           style="
               display: block;
@@ -1059,7 +1053,7 @@
         calculateTotal();
     }
 
-    function updatePercentage(productId, percentage) {
+    function updateTotalPercentage(percentage) {
         const buttons = document.getElementsByClassName("percentage-buttons")[0].getElementsByTagName("button");
 
         for (let i = 0; i < buttons.length; i++) {
